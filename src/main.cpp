@@ -121,6 +121,10 @@ int main( int argc, char *argv[] )
     QCoreApplication::setOrganizationName( "QDirStat" );
     QCoreApplication::setApplicationName ( "QDirStat" );
 
+    // Disabling the native macOS menu bar prevents main window shortcuts
+    // from triggering while another QDirStat window has focus
+    QApplication::setAttribute( Qt::AA_DontUseNativeMenuBar );
+
     QApplication qtApp( argc, argv);
     QStringList argList = QCoreApplication::arguments();
     argList.removeFirst(); // Remove program name
